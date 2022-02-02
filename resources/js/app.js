@@ -1,0 +1,170 @@
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+ require('./bootstrap');
+
+window.Vue = require('vue').default;
+import moment from 'moment';
+import Vue from 'vue'
+
+import vuetify from '../plugin/vuetify'
+
+import Form from 'vform'
+import {
+    Button,
+    HasError,
+    AlertError,
+    AlertErrors,
+    AlertSuccess
+  } from 'vform/src/components/bootstrap5'
+import Gate from './gate';
+
+
+import VueRouter from 'vue-router'
+import swal from 'sweetalert2'
+
+import VueProgressBar from 'vue-progressbar'
+
+
+
+
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+  });
+
+const Toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', swal.stopTimer)
+      toast.addEventListener('mouseleave',swal.resumeTimer)
+    }
+  });
+
+Vue.filter('upText', function(text){
+    return text.charAt(0).toUpperCase() + text.slice(1)
+});
+
+Vue.filter('myDate',function(created){
+    return moment(created).format('MMMM Do YYYY');
+});
+
+Vue.filter('format',function(date){
+    return moment(date).format('LL');
+});
+
+
+
+Vue.prototype.$gate = new Gate(window.user)
+Vue.prototype.$moment = moment
+
+Vue.use(VueRouter)
+Vue.use(VueProgressBar, {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '3px'
+  })
+
+
+window.swal = swal;
+window.Form = Form;
+
+window.Fire =  new Vue();
+
+
+window.toast = toast;
+window.Toast = Toast;
+
+Vue.component(
+    'not-found',
+    require('./components/NotFound.vue')
+);
+
+Vue.component(Button.name, Button)
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+Vue.component(AlertErrors.name, AlertErrors)
+Vue.component(AlertSuccess.name, AlertSuccess)
+Vue.component('pagination', require('laravel-vue-pagination'));
+
+
+
+
+let routes = [
+    {
+        path: '/home', component: require('./components/Dashboard.vue').default
+    },
+    {
+        path: '/users', component: require('./components/Users.vue').default
+    },
+    {
+        path: '/profile', component: require('./components/Profile.vue').default
+    },
+    {
+        path: '/clients', component: require('./components/Clients.vue').default
+    },
+    {
+        path: '/pet', component: require('./components/Pet.vue').default
+    },
+    {
+        path: '/report', component: require('./components/Report.vue').default
+    },
+    {
+        path: '/employees', component: require('./components/Employees.vue').default
+    },
+    {
+        path: '/petrecord', component: require('./components/PetRecord.vue').default
+    },
+    {
+        path: '/schedule', component: require('./components/Schedule.vue').default
+    },
+    {
+        path: '/services', component: require('./components/Services.vue').default
+    },
+    {
+        path: '/appointment', component: require('./components/Appointment.vue').default
+    },
+    {
+        path: '/deleted', component: require('./components/DeletededAccount.vue').default
+    },
+   
+    
+    
+    {
+        path: '*', component: require('./components/NotFound.vue').default
+    },
+]
+
+
+const router = new VueRouter({
+    mode: 'history',
+    routes
+})
+
+
+
+
+const app = new Vue({
+    el: '#app',
+    vuetify,
+    router,
+  
+    methods:{
+        searchit: _.debounce(() => {
+            Fire.$emit('searching');
+        },1000)
+
+        // printme() {
+        //     window.print();
+        // }
+    }
+});

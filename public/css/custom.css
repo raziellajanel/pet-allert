@@ -1,0 +1,66 @@
+.custom-layout__login {
+  background-image: url('../image/login_background.jpg');
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+      background-position: center center;
+}
+
+.custom-card__glass {
+
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.06), 2px 2px 2px rgba(0, 0, 0, 0.06), 4px 4px 4px rgba(0, 0, 0, 0.06), 8px 8px 8px rgba(0, 0, 0, 0.06), 16px 16px 16px rgba(0, 0, 0, 0.06), 32px 32px 32px rgba(0, 0, 0, 0.06), -1px -1px 1px rgba(255, 255, 255, 0.06), -2px -2px 2px rgba(255, 255, 255, 0.06), -4px -4px 4px rgba(255, 255, 255, 0.06), -8px -8px 8px rgba(255, 255, 255, 0.06), -16px -16px 16px rgba(255, 255, 255, 0.06), -32px -32px 32px rgba(255, 255, 255, 0.06);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.06), 2px 2px 2px rgba(0, 0, 0, 0.06), 4px 4px 4px rgba(0, 0, 0, 0.06), 8px 8px 8px rgba(0, 0, 0, 0.06), 16px 16px 16px rgba(0, 0, 0, 0.06), 32px 32px 32px rgba(0, 0, 0, 0.06), -1px -1px 1px rgba(255, 255, 255, 0.06), -2px -2px 2px rgba(255, 255, 255, 0.06), -4px -4px 4px rgba(255, 255, 255, 0.06), -8px -8px 8px rgba(255, 255, 255, 0.06), -16px -16px 16px rgba(255, 255, 255, 0.06), -32px -32px 32px rgba(255, 255, 255, 0.06);
+}
+
+.custom-button {
+  background-color: #3911e9;
+  border: none;
+  letter-spacing: 0.5em;
+  font-size: 1em;
+}
+
+.custom-button:hover, .custom-button:focus, .custom-button:active {
+  background-color: #cc4d57;
+}
+
+.custom-button:focus, .custom-button:active {
+  background-color: #9e2831 !important;
+}
+
+.custom-input {
+  background: none;
+  color: rgb(5, 5, 5) !important;
+}
+
+.custom-input:focus {
+  background: none;
+}
+
+.custom-input__label {
+  color: rgb(12, 12, 12);
+}
+
+.custom-welcome {
+  letter-spacing: 0.65em;
+  font-size: 2em;
+  margin-bottom: 1.2em;
+}
+.sidebar-blue{
+  background-color: #081f95;
+}
+/*# sourceMappingURL=custom.css.map */
+
